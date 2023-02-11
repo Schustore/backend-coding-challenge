@@ -60,6 +60,7 @@ Bonus:
 There are 5 different endpoints produced from this springboot application. These endpoints, and request bodies, are listed below:
 
 - http://localhost:8082/api/v1/gateways/create
+
   Requestbody:
   ```
     {
@@ -69,6 +70,7 @@ There are 5 different endpoints produced from this springboot application. These
     Description: This endpoint only has one parameter, the name of the gateway you wish to create. It will create a new gateway in the neo4j database.
    
 - http://localhost:8082/api/v1/gateways/query
+
   Requestbody:
   ```
     {
@@ -80,6 +82,7 @@ There are 5 different endpoints produced from this springboot application. These
      Description: This endpoint accepts up to 3 parameters. It handles all querying for gateways and can return all gateways, all gateways with specific sensor types assigned to them, a specific gateway, and a specific gateway that also has specific sensor type assigned to it.
      
 - http://localhost:8082/api/v1/sensors/create
+
   Requestbody:
   ```
     {
@@ -90,6 +93,7 @@ There are 5 different endpoints produced from this springboot application. These
      Description: This endpoint accepts 2 parameters. It creates a new sensor and adds it to the neo4j database. You can add as many sensor types to it as you'd like.
      
 - http://localhost:8082/api/v1/sensors/assign
+
   Requestbody:
   ```
     {
@@ -101,6 +105,7 @@ There are 5 different endpoints produced from this springboot application. These
      Description: This endpoint accepts 3 parameters. It assigns a specified sensor to a specified gateway. The gateways need to exist in the neo4j database. There is an option to overwrite an existing relationship.
      
 - http://localhost:8082/api/v1/sensors/query
+
   Requestbody:
     ```
      {
