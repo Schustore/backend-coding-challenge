@@ -1,10 +1,3 @@
-# Energybox Backend Coding Challenge
-
-Please complete the assignment detailed below email me back with your code either zipped as an attachment or a link to where you're working on the code ( ie GitHub, bitbucket, gitlab etc. ) 
-Please also suggest a day when we can spend 45 minutes to an 1 hour reviewing your work. As we might want to include colleagues from other timezones, the time for the interview will be around 8pm. 
-
-If you have any questions/concerns feel free to reach out to me via email ( marcus.hunger@energybox.com ). 
-I will try to reply as quickly as possible.
 
 ### Tech to use:
 
