@@ -102,7 +102,7 @@ There are 5 different endpoints produced from this springboot application. These
      "overwrite": Boolean  //required
     }
   ```
-     Description: This endpoint accepts 3 parameters. It assigns a specified sensor to a specified gateway. The gateways need to exist in the neo4j database. There is an option to overwrite an existing relationship.
+     Description: This endpoint accepts 3 parameters. It assigns a specified sensor to a specified gateway. The gateways/sensors need to exist in the neo4j database. There is an option to overwrite an existing relationship.
      
 - http://localhost:8082/api/v1/sensors/query
 
