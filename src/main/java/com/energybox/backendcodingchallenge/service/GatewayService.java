@@ -32,6 +32,7 @@ public class GatewayService {
         Session session = sessionFactory.openSession();
         String relationship = "";
         String typeOfSensor = "";
+        String gatewayNameQuery = "";
 
         if (gatewayQuery.getAllGateways() != true) {
 
@@ -40,9 +41,13 @@ public class GatewayService {
                 typeOfSensor = String.format("WHERE (\"%s\" in m.type)", gatewayQuery.getSensorType());
             }
 
+            if(gatewayQuery.getGateway() != null){
+                gatewayNameQuery = String.format("{name:\"%s\"}", gatewayQuery.getGateway());
+            }
+
         }
 
-        String finalQuery = String.format("MATCH %s(n:Gateway) %s return n.name as name", relationship, typeOfSensor);
+        String finalQuery = String.format("MATCH %s(n:Gateway%s) %s return n.name as name", relationship, gatewayNameQuery, typeOfSensor);
         Result result = session.query(finalQuery, Collections.emptyMap());
 
         return result;

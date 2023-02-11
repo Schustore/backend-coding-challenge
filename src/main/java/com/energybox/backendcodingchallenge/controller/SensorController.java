@@ -41,7 +41,7 @@ public class SensorController {
         return new ResponseEntity<>(objectBody, httpStatus);
     }
 
-    @ApiOperation( value = "create a sensor", response = Sensor.class )
+    @ApiOperation( value = "create a sensor.", response = Object.class )
     @RequestMapping( value = "/create", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE )
     public ResponseEntity<Object> create(
             @Valid @RequestBody Sensor sensor
@@ -51,7 +51,7 @@ public class SensorController {
         return responseObject(HttpStatus.OK, String.format("sensor %s successfully created.", sensor.getName()));
     }
 
-    @ApiOperation( value = "query a sensor", response = Sensor.class )
+    @ApiOperation( value = "query a sensor.", response = Result.class )
     @RequestMapping( value = "/query", method = RequestMethod.GET, consumes = MediaType.APPLICATION_JSON_VALUE )
     public ResponseEntity<Object> query(
             @Valid @RequestBody SensorQuery sensorQuery
@@ -61,8 +61,8 @@ public class SensorController {
         return new ResponseEntity<>(response,  HttpStatus.OK );
     }
 
-    @ApiOperation( value = "attach a sensor to a gateway", response = Sensor.class )
-    @RequestMapping( value = "/attach", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE )
+    @ApiOperation( value = "assign a sensor to a gateway.", response = Object.class )
+    @RequestMapping( value = "/assign", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE )
     public ResponseEntity<Object> attach(
             @Valid @RequestBody AssignSensor assignSensor
     ) throws IOException, InterruptedException, IllegalAccessException {

@@ -11,6 +11,12 @@ public class GatewayQuery {
     @Pattern(regexp = "electricity|humidity|temperature", message = "sensor type must be: electricity, humidity, or temperature")
     private String sensorType;
 
+    private String gateway;
+
+    public String getGateway(){
+        return this.gateway;
+    }
+
     public Boolean getAllGateways(){
         return this.allGateways;
     }
@@ -19,6 +25,9 @@ public class GatewayQuery {
         return this.sensorType;
     }
 
+    public void setGateway(String gateway){
+        this.gateway = gateway;
+    }
     public void setAllGateways(Boolean allGateways){
         this.allGateways = allGateways;
     }

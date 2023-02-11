@@ -6,7 +6,6 @@ import com.energybox.backendcodingchallenge.service.GatewayService;
 import io.swagger.annotations.ApiOperation;
 import org.neo4j.ogm.model.Result;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.AutoConfigureOrder;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -40,7 +39,7 @@ public class GatewayController {
         return new ResponseEntity<>(objectBody, httpStatus);
     }
 
-    @ApiOperation( value = "create a gateway", response = Gateway.class )
+    @ApiOperation( value = "create a gateway.", response = Object.class )
     @RequestMapping( value = "/create", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE )
     public ResponseEntity<Object> create(
             @Valid @RequestBody Gateway newGateway
@@ -50,7 +49,7 @@ public class GatewayController {
         return responseObject(HttpStatus.OK, String.format("gateway %s successfully created",newGateway.getName()));
     }
 
-    @ApiOperation( value = "query for gateway(s)", response = Gateway.class )
+    @ApiOperation( value = "query for gateways.", response = Result.class )
     @RequestMapping( value = "/query", method = RequestMethod.GET, consumes = MediaType.APPLICATION_JSON_VALUE )
     public ResponseEntity<Object> query(
             @Valid @RequestBody GatewayQuery gatewayQuery
