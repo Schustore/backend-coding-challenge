@@ -67,7 +67,9 @@ There are 5 different endpoints produced from this springboot application. These
        "name": String  //required
     }
   ```
-    Description: This endpoint only has one parameter, the name of the gateway you wish to create. It will create a new gateway in the neo4j database.
+    Details: 
+    - Accepts one required parameter -- the name of the gateway you wish to create.
+    - Creates a new gateway in neo4j database
    
 - http://localhost:8082/api/v1/gateways/query
 
@@ -79,7 +81,13 @@ There are 5 different endpoints produced from this springboot application. These
      "gateway": String       //optional
     }
   ```
-     Description: This endpoint accepts up to 3 parameters. It handles all querying for gateways and can return all gateways, all gateways with specific sensor types assigned to them, a specific gateway, and a specific gateway that also has specific sensor type assigned to it.
+     Details: 
+    - Accepts 3 parameters. 1 is required, the other two are optional and narrow down the query.
+    - Able to return all existing gateways in the database.  Setting "allGateways" to true will always return all existing gateways
+    - Able to return all gateways with a specific sensor type assigned to it.
+    - Able to return a specific gateway.
+    - Able to return a specific gateway with specific sensors attached to it.
+    
      
 - http://localhost:8082/api/v1/sensors/create
 
@@ -90,8 +98,10 @@ There are 5 different endpoints produced from this springboot application. These
      "type": List<String> //required
     }
   ```
-     Description: This endpoint accepts 2 parameters. It creates a new sensor and adds it to the neo4j database. You can add as many sensor types to it as you'd like.
-     
+     Details: 
+    - Accepts 2 parameters, both are required. This creates a new sensor in the neo4j database.
+    - You can add as many types to the sensor as you wish upon creation.
+    
 - http://localhost:8082/api/v1/sensors/assign
 
   Requestbody:
@@ -102,7 +112,10 @@ There are 5 different endpoints produced from this springboot application. These
      "overwrite": Boolean  //required
     }
   ```
-     Description: This endpoint accepts 3 parameters. It assigns a specified sensor to a specified gateway. The gateways/sensors need to exist in the neo4j database. There is an option to overwrite an existing relationship.
+     Details: 
+    - Accepts 3 parameters, all 3 are required. This assigns a specific sensor to a specific gateway.
+    - The sensor and gateway need to exist in the database.
+    - The overwrite option will decide to overwrite a relationship if one already exists on the sensor.
      
 - http://localhost:8082/api/v1/sensors/query
 
@@ -114,5 +127,10 @@ There are 5 different endpoints produced from this springboot application. These
        "gateway": String     //optional
      }
     ```
-     Description: This endpoint accepts up to 3 parameters. It is responsible for all querying surrounding sensors. It can return all of the existing sensors, all sensors of a specific type, all sensors that have been assigned to a gateway (can narrow down by type too), and all sensors that have been assigned to a specific gateway (can narrow down by type too).
+     Details: 
+    - Accepts 3 parameters. 1 is required and 2 are optional, they help narrow down the query.
+    - Able to return all existing sensors in the database. Setting allSensors to true will always return all sensors.
+    - Able to return all sensors with a specific type assigned to it.
+    - Able to return all sensors that have been assigned to specific gateway.
+    - Able to return all sensors that have been assigned to a specific gateway and have a specific type assigned to them.
 
